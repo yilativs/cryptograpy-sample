@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>216</y>
+      <w>603</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>java.security.Provider
+--
+A central class in the Java cryptography API. 
+In order to use the Java crypto API you need to set a Provider. 
+The JDK comes default provider (which does not support many algorithms e.g. GOST) 
+--
+Popular providers are BouncyCastleProvider and CrpyptoProProvider
+--
+Security.addProvider(new BouncyCastleProvider());//BC
+Security.addProvider(new JCP()); // JCP
+Security.addProvider(new RevCheck()); // RevCheck
+Security.addProvider(new CryptoProvider()); // JCryptoP      
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>549</y>
+      <w>486</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>javax.crypto.Cipher
+--
+Represents a cryptographic algorithm. 
+A cipher can be used to both encrypt and decrypt data.
+--
+Cipher encryptionCipher = Cipher.getInstance(keyPair.getPrivate().getAlgorithm()); 
+encryptionCipher.init(Cipher.ENCRYPT_MODE, keyPair.getPrivate());
+encryptionCipher.update("secret text".getBytes());
+byte[] encryptedBytes = encryptionCipher.doFinal(); 
+Cipher decriptionCipher = Cipher.getInstance(keyPair.getPrivate().getAlgorithm());
+decriptionCipher.init(Cipher.DECRYPT_MODE, keyPair.getPublic());
+decriptionCipher.update(encryptedBytes);
+byte[] decryptedBytesOfSecretText = decriptionCipher.doFinal();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>513</x>
+      <y>0</y>
+      <w>468</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>Java Cryptography Architecture (JCA)
+--
+a set of general purpose classes and interfaces:
+java.security
+java.security.cert
+java.security.spec
+java.security.interfaces
+javax.crypto
+javax.crypto.spec
+javax.crypto.interfaces
+--
+Since JDK 1.4 JCE is merged into JDK and now an extension of JCA
+providing Cipher, Key(Pair)Generator. 
+The border between JCA and JCE is vague and JCE is disappearing.
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>945</y>
+      <w>180</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>java.security.KeyPair</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>981</x>
+      <y>873</y>
+      <w>27</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1098</x>
+      <y>873</y>
+      <w>27</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>810</y>
+      <w>27</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>810</y>
+      <w>27</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>810</y>
+      <w>27</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>774</y>
+      <w>576</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+java.security.Key
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>846</y>
+      <w>153</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;inteface&gt;&gt;
+java.security.SecretKey
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>855</x>
+      <y>846</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;inteface&gt;&gt;
+java.security.PublicKey
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>846</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;inteface&gt;&gt;
+java.security.PrivateKey
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>729</y>
+      <w>54</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>1242</y>
+      <w>675</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;inteface&gt;&gt;
+java.security.spec.AlgorithmParameterSpec
+--
+A (transparent) specification of cryptographic parameters.
+This interface contains no methods or constants. 
+Its purpose is to group all parameter specifications. 
+All parameter specifications must implement this interface.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>972</y>
+      <w>405</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>javax.crypto.KeyGenerator
+--
+Provides the functionality of a secret key generator.
+There are two ways to generate a key: 
+in an algorithm-independent manner, 
+in an algorithm-specific manner. 
+--
+KeyGenerator generator = KeyGenerator.getInstance("AES");
+int keyBits = 256;
+generator.init(keyBits, new SecureRandom());
+SecretKey secretKey = generator.generateKey();
+--
+it is safe to use:
+AES (128)
+HmacSHA256
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>963</x>
+      <y>999</y>
+      <w>477</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>java.security.KeyPairGenerator
+--
+Generates pairs of public and private keys. 
+There are two ways to generate a key pair: 
+* in an algorithm-independent manner 
+* in an algorithm-specific manner
+--
+KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+KeyPair keyPair = generator.generateKeyPair();
+--
+It is safe to use:
+DiffieHellman (2048, 4096)
+RSA (2048, 4096)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>873</y>
+      <w>90</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+generates</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1044</x>
+      <y>963</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+generates</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>405</y>
+      <w>774</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>java.security.KeyStore
+--
+storage facility for cryptographic keys and certificates.
+
+A KeyStore manages different types of entries. 
+Each type of entry implements the KeyStore.Entry interface. 
+Three basic KeyStore.Entry implementations are provided:
+
+KeyStore.PrivateKeyEntry 
+- holds a cryptographic PrivateKey, which is optionally stored in a protected format to prevent unauthorized access. 
+It is also accompanied by a certificate chain for the corresponding public key.
+Private keys and certificate chains are used by a given entity for self-authentication.
+
+KeyStore.SecretKeyEntry
+- holds a cryptographic SecretKey, which is optionally stored in a protected format to prevent unauthorized access.
+
+KeyStore.TrustedCertificateEntry
+- contains a single public key Certificate belonging to another party. 
+It is called a trusted certificate because the keystore owner trusts that the public key in the certificate 
+indeed belongs to the identity identified by the subject (owner) of the certificate. 
+--
+2 formats are supported:
+JKS (java specific before java 9 format)
+PKCS12 (standardized language-neutral way of storing encrypted private keys and certificates.)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>1161</y>
+      <w>54</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1044</x>
+      <y>1161</y>
+      <w>54</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>405</y>
+      <w>513</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>java.security.MessageDigest
+--
+Provides functionality of a message digest algorithm (e.g.SHA-256) 
+Message digests are secure one-way hash functions that take arbitrary-sized 
+data and output a fixed-length hash value.
+--
+MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+messageDigest.update("someText".getBytes(StandardCharsets.UTF_8));
+messageDigest.update("moreText".getBytes(StandardCharsets.UTF_8));
+byte[] digestBytes = messageDigest.digest();
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>774</y>
+      <w>477</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>javax.crypto.Mac
+--
+This class provides the functionality of a "Message Authentication Code".
+A MAC provides a way to check the integrity of information 
+by means of a secret key.
+A MAC calculated with cryptographic hash functions is a HMAC. 
+HMAC can be used with any cryptographic hash function, e.g., 
+SHA256 or SHA384, in combination with a secret shared key.
+--
+Java platforms are required to support:
+HmacMD5, HmacSHA1, HmacSHA256
+--
+HMAC_SHA256 generation sample:
+KeyGenerator generator = KeyGenerator.getInstance("AES");
+generator.init(256);
+SecretKey key = generator.generateKey();
+Mac mac = Mac.getInstance(HMAC_SHA256);
+mac.init(key);
+mac.update("012".getBytes(StandardCharsets.UTF_8));
+mac.update("456".getBytes(StandardCharsets.UTF_8));
+byte[] macBytes = mac1.doFinal();
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>468</x>
+      <y>846</y>
+      <w>198</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1485</x>
+      <y>792</y>
+      <w>558</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>java.security.Signature
+--
+The message digest encrypted with private key is called a digital signature. 
+--
+signing:
+Signature signature = Signature.getInstance("SHA256WithRSA");
+signature.initSign(keyPair.getPrivate(), SecureRandom.getInstanceStrong());
+signature.update(data);
+signature.sign();
+--
+validate signature:
+Signature signature = Signature.getInstance("SHA256WithRSA");
+signature.initVerify(publicKey);
+signature.update(dataBytes);
+signature.verify(signatureBytes);//returns true if valid</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1215</x>
+      <y>846</y>
+      <w>288</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses</panel_attributes>
+    <additional_attributes>10.0;20.0;300.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>999</x>
+      <y>873</y>
+      <w>504</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;540.0;60.0</additional_attributes>
+  </element>
+</diagram>
